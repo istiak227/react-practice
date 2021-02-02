@@ -1,9 +1,9 @@
 import React from "react";
 import "./styles.css";
-import { Route, BrowserRouter as Router } from "react-router-dom";
-// import Layout from "./components/Layout";
+import { Route, BrowserRouter as Router, Link, Switch } from "react-router-dom";
+import Header from "./components/Header"
 import Footer from "./components/Footer"
-import Navigation from "./components/Navigation"
+import './App.css'
 
 class App extends React.Component {
   constructor() {
@@ -19,12 +19,28 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <Router>
-            <Route path="/footer" component={Footer}></Route>
-            <Route path="/navigation" component={Navigation}></Route>
-        </Router>
-      </div>
+      <Router>
+        <div className="App">
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/header">Header</Link>
+              </li>
+              <li>
+                <Link to="/footer">Footer</Link>
+              </li>
+            </ul>
+          </nav>
+          <Switch>
+            <Route path="/header" component= {Header} />
+            <Route path="/footer" component= {Footer} />
+            
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
