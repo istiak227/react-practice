@@ -1,17 +1,19 @@
 import React from "react";
 import Title from "./Title";
-import Navigation from "./Navigation";
+// import Navigation from "./Navigation";
+
+
 
 const Header = (props) => {
   const handleChange = (e) => {
     const title = e.target.value;
-    props.onTitleChange(title);
+    console.log("Hello, " + title)
+    props.onTitleChange("Hello, " + title)
   };
   return (
     <div>
-      <Navigation />
       <Title title={props.title} />
-      <input onChange={handleChange} />
+      <input type="search" placeholder={props.placeHolderText} onChange={handleChange} />
     </div>
   );
 };

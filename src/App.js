@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      title: "This is a New Header"
+      title: "Hello,",
+      placeHolderText: "Write Your Name"
     };
   }
 
@@ -35,7 +36,9 @@ class App extends React.Component {
             </ul>
           </nav>
           <Switch>
-            <Route path="/header" component= {Header} />
+            <Route path="/header">
+              <Header onTitleChange={this.onTitleChange.bind(this)} title={this.state.title} placeHolderText={this.state.placeHolderText} />
+            </Route>
             <Route path="/footer" component= {Footer} />
             
           </Switch>
